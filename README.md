@@ -2,7 +2,7 @@
 
 
 app.json
-```
+```json
 {
   "expo": {
     "name": "CouponApp",
@@ -43,7 +43,7 @@ app.json
 
 
 app.config.ts
-```
+```ts
 import { ExpoConfig, ConfigContext } from '@expo/config';
 
 // https://docs.expo.io/workflow/configuration/
