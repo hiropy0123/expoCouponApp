@@ -4,9 +4,18 @@ import Constants from 'expo-constants';
 import ListItem from '../components/ListItem';
 import { Article } from '../types/article';
 import { fetchArticlesAsync } from '../functions/articles';
+import { HomeStackParamList } from '../navigations/AppNavigator';
+import { StackNavigationProp } from '@react-navigation/stack';
 
-const HomeScreen: React.FC<{ newsApiKey: string }> = (props) => {
-  const URL = `http://newsapi.org/v2/top-headlines?country=jp&category=business&apiKey=${props.newsApiKey}`;
+type HomeScreenNavigationProp = StackNavigationProp<HomeStackParamList, 'Home'>
+
+type Props = {
+  navigation: HomeScreenNavigationProp;
+  newsApiKey: string;
+}
+
+const HomeScreen: React.FC<Props> = ({ navigation, newsApiKey }) => {
+  const URL = `http://newsapi.org/v2/top-headlines?country=jp&category=business&apiKey=${newsApiKey}`;
   const [articles, setArticles] = useState<Article[]>([]);
 
   const fetchArticles = async () => {
@@ -32,7 +41,7 @@ const HomeScreen: React.FC<{ newsApiKey: string }> = (props) => {
             author={item.author || ''}
             imageUrl={item.urlToImage || ''}
             date={item.publishedAt || ''}
-            onPress={() => { alert(item.title) }}
+            onPress={() => navigation.navigate('Article', { article: item })}
           />
         )}
         keyExtractor={(_, index) => index.toString()}
