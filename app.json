@@ -2,11 +2,7 @@
   "expo": {
     "name": "CouponApp",
     "slug": "CouponApp",
-    "platforms": [
-      "ios",
-      "android",
-      "web"
-    ],
+    "platforms": ["ios", "android"],
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -18,11 +14,22 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
+      "bundleIdentifier": "com.hiroki123naka4ma.CouponApp",
+      "buildNumber": "1.0.0",
+      "config": {
+        "googleSignIn": {
+          "reservedClientId": "com.googleusercontent.apps.352994825275-hu5d4bekks2u8ljmogg3ltt3ehuvlcnl"
+        }
+      },
+      "googleServicesFile": "./GoogleService-Info.plist",
       "supportsTablet": false
+    },
+    "android": {
+      "package": "com.hiroki123naka4ma.CouponApp",
+      "versionCode": 1,
+      "googleServicesFile": "./google-services.json"
     }
   }
 }
