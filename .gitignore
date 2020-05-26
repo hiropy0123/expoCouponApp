@@ -10,7 +10,11 @@ npm-debug.*
 web-build/
 web-report/
 .env
+app.json
 app.config.ts
+google-services.json
+GoogleService-Info.plist
+configs/*
 
 # macOS
 .DS_Store
