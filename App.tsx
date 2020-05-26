@@ -1,6 +1,6 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
 import { DefaultTheme, Provider as PaperProvider } from 'react-native-paper';
+import AppNavigator from './src/navigations/AppNavigator';
 
 const theme = {
   ...DefaultTheme,
@@ -14,18 +14,7 @@ const theme = {
 export default function App () {
   return (
     <PaperProvider theme={theme}>
-      <View style={styles.container}>
-        <Text>Hello React Native!</Text>
-      </View>
+      <AppNavigator />
     </PaperProvider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
