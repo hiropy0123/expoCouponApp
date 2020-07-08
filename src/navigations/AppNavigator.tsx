@@ -31,7 +31,10 @@ const AppNavigator: React.FC = () => {
     <NavigationContainer>
       <Tab.Navigator
         initialRouteName="Home"
-        tabBarOptions={{ activeTintColor: '#e63f7d', inactiveTintColor: '#999999' }}
+        tabBarOptions={{
+          activeTintColor: '#e63f7d',
+          inactiveTintColor: '#999999',
+        }}
         screenOptions={({ route }) => ({
           tabBarIcon: ({ focused, color, size }) => {
             let iconName = 'circle';
@@ -41,12 +44,20 @@ const AppNavigator: React.FC = () => {
             } else if (route.name === 'Coupons') {
               iconName = 'ticket';
             }
-            return <Entypo name={iconName} size={size} color={color} />
-          }
+            return <Entypo name={iconName} size={size} color={color} />;
+          },
         })}
       >
-        <Tab.Screen name="Home" component={HomeStack} options={{ tabBarLabel: 'ホーム' }} />
-        <Tab.Screen name="Coupons" component={CouponsScreen} options={{ tabBarLabel: 'クーポン' }} />
+        <Tab.Screen
+          name="Home"
+          component={HomeStack}
+          options={{ tabBarLabel: 'ホーム' }}
+        />
+        <Tab.Screen
+          name="Coupons"
+          component={CouponsScreen}
+          options={{ tabBarLabel: 'クーポン' }}
+        />
       </Tab.Navigator>
     </NavigationContainer>
   );

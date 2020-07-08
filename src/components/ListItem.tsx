@@ -9,22 +9,32 @@ type ListItemProps = {
   imageUrl: string;
   date: string;
   onPress: any;
-}
+};
 
 const ListItem: React.FC<ListItemProps> = ({
   title,
   author,
   imageUrl,
   date,
-  onPress
+  onPress,
 }) => {
+  const NewsImage = () => {
+    return imageUrl !== '' ? (
+      <Text>NO IMAGE</Text>
+    ) : (
+      <Image source={{ uri: imageUrl }} style={{ width: 100, height: 100 }} />
+    );
+  };
+
   return (
     <TouchableOpacity onPress={onPress} style={styles.itemContainer}>
       <View style={styles.leftContainer}>
         <Image source={{ uri: imageUrl }} style={{ width: 100, height: 100 }} />
       </View>
       <View style={styles.rightContainer}>
-        <Text style={styles.text} numberOfLines={3}>{title}</Text>
+        <Text style={styles.text} numberOfLines={3}>
+          {title}
+        </Text>
         <View style={styles.metaContainer}>
           <Text style={styles.subText}>
             {format(parseISO(date), 'yyyy.M.d', { locale: ja })}
@@ -34,7 +44,7 @@ const ListItem: React.FC<ListItemProps> = ({
       </View>
     </TouchableOpacity>
   );
-}
+};
 
 const styles = StyleSheet.create({
   itemContainer: {
@@ -42,29 +52,29 @@ const styles = StyleSheet.create({
     height: 100,
     flexDirection: 'row',
     borderColor: '#d0d0d0',
-    borderWidth: 1
+    borderWidth: 1,
   },
   leftContainer: {
-    width: 100
+    width: 100,
   },
   rightContainer: {
     flex: 1,
     padding: 10,
     flexDirection: 'column',
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
   },
   metaContainer: {
     width: '100%',
     flexDirection: 'row',
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
   },
   text: {
-    fontSize: 16
+    fontSize: 16,
   },
   subText: {
     fontSize: 10,
-    color: 'gray'
-  }
+    color: 'gray',
+  },
 });
 
 export default ListItem;

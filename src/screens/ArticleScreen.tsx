@@ -9,7 +9,6 @@ type Props = {
   route: ArticleScreenRouteProp;
 };
 
-
 const ArticleScreen: React.FC<Props> = ({ route }) => {
   const { article } = route.params;
 
